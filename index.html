@@ -1,0 +1,263 @@
+  <!DOCTYPE html>
+  <html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis 15 Años | Samantha Ibañez</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body class="lock">
+
+  <!-- SOBRE -->
+  <div id="overlay-sobre">
+    <div class="contenido-sobre" onclick="abrirInvitacion()">
+      <p class="intro">Estás cordialmente invitado a mis 15 años</p>
+      <h1 class="nombre">Samantha Ibañez</h1>
+      <img src="img/sobre.png" alt="Sobre">
+      <span class="click">Clic aquí para abrir</span>
+    </div>
+  </div>
+
+  <main>
+
+  <!-- PORTADA -->
+  <section class="section portada">
+    <div class="sobres-fondo">
+      <span style="left:10%; animation-duration:6s;">💌</span>
+      <span style="left:25%; animation-duration:8s;">💌</span>
+      <span style="left:40%; animation-duration:7s;">💌</span>
+      <span style="left:55%; animation-duration:9s;">💌</span>
+      <span style="left:70%; animation-duration:6.5s;">💌</span>
+      <span style="left:85%; animation-duration:8.5s;">💌</span>
+    </div>
+
+    <div class="texto-portada">
+      <h1>Samantha</h1>
+
+      <div class="linea-xv">
+        <span></span>
+        <p>MIS XV AÑOS</p>
+        <span></span>
+      </div>
+
+      <p class="fecha-portada">24 Enero 2026</p>
+    </div>
+
+    <img src="img/portada.jpg" alt="Portada">
+  </section>
+
+  <!-- MUSICA -->
+  <section class="section musica">
+    <p class="play-text">Reproduce mi canción favorita</p>
+
+    <div class="music-box">
+      <img class="corona" src="img/corona.png">
+      <button onclick="playMusic()">▶</button>
+    </div>
+
+    <p class="mensaje">
+      Desde pequeña imaginé este momento,y hoy por fin llega uno de los días más importantes de mi vida. Cumplir 15 años significa crecer, soñar y creer en mí, y nada sería igual sin quienes me han regalado su amor y apoyo. Por eso, quiero que seas parte de esta noche mágica.<br><br><br>
+      Yanet Montoya y Fabian Ibañez<br><br>
+
+      <span class="texto-cafe">
+        Tenemos el gusto de invitarlos a los XV años de nuestra princesa
+      </span><br>
+
+      <img src="img/corona.png" class="corona-texto" alt="Corona">
+      <span class="nombre-texto">Samantha</span>
+    </p>
+
+    <audio id="audio" src="audio/no-crezcas-mas.mp3"></audio>
+  </section>
+
+  <!-- CONTADOR -->
+  <section class="section contador">
+    <p class="contador-titulo">Tan solo faltan</p>
+
+    <div class="contador-box">
+      <div class="contador-numeros">
+        <span id="dias">00</span>
+        <span class="dos-puntos">:</span>
+        <span id="horas">00</span>
+        <span class="dos-puntos">:</span>
+        <span id="minutos">00</span>
+        <span class="dos-puntos">:</span>
+        <span id="segundos">00</span>
+      </div>
+
+      <div class="contador-textos">
+        <span>Días</span>
+        <span></span>
+        <span>Horas</span>
+        <span></span>
+        <span>Min</span>
+        <span></span>
+        <span>Seg</span>
+      </div>
+    </div>
+
+    <p class="contador-final">para este día tan especial</p>
+  </section>
+  <!-- CUANDO Y DONDE -->
+  <section class="section cuando-donde">
+    <h2 class="titulo-dorado">¿Cuándo y Dónde?</h2>
+
+    <p class="texto-info">
+      A continuación encontrarás el horario y<br> ubicación de los eventos de mi fiesta,
+      <br>asi como un botón directo a Google Maps <br>para que te sea más fácil llegar al lugar.
+    </p>
+
+    <h3 class="subtitulo-dorado">Recepción</h3>
+
+    <div class="fecha-box">
+      <img src="img/enero-arco.png" class="mes-img" alt="Enero">
+
+
+      <div class="fecha-linea">
+    <div class="con-rayas">Sábado</div>
+    <span class="dia-numero">24</span>
+    <div class="con-rayas">2026</div>
+  </div>
+
+
+    <div class="hora">
+      <img src="img/icono-reloj.png" class="icono-img" alt="Hora">
+      <p>7:00 pm</p>
+    </div>
+
+    <div class="lugar">
+      <img src="img/icono-ubicacion.png" class="icono-img" alt="Ubicación">
+      <p class="nombre-lugar">CASA MONTERO</p>
+      <p class="direccion">Dg 69 SUR 17 G 98 PISO 3</p>
+    </div>
+
+    <a
+      href="https://maps.app.goo.gl/ErL7KUsuqtUgAKhF7"
+      target="_blank"
+      class="btn-mapa"
+    >
+      Ir al mapa
+    </a>
+  </section>
+  <!-- CODIGO DE VESTIMENTA -->
+  <section class="section vestimenta">
+    <h2 class="titulo-dorado">Código de Vestimenta</h2>
+
+    <div class="boton-vestimenta" onclick="abrirVestimenta()">
+      <img src="img/boton.png" alt="Ver vestimenta">
+      <span class="texto-ver">Ver</span>
+    </div>
+
+    <p class="click-texto">Dar click</p>
+  </section>
+
+  <!-- MODAL VESTIMENTA -->
+  <div class="modal-vestimenta" id="modalVestimenta">
+    <div class="contenido-vestimenta">
+      <span class="cerrar-vestimenta" onclick="cerrarVestimenta()">✕</span>
+
+      <p class="texto-modal">
+        Vístete elegante y luce increíble<br> en esta noche especial
+      </p>
+
+      <img src="img/vestimenta.png" class="img-vestimenta" alt="Vestimenta">
+
+      <p class="nota-color">Se reserva el color verde</p>
+    </div>
+  </div>
+  <!-- LLUVIA DE SOBRES -->
+  <section class="section regalos">
+    <h2 class="titulo-dorado">Regalos</h2>
+
+    <div class="boton-abrir" onclick="abrirSobres()">
+      <img src="img/boton.png" alt="Botón">
+      <span class="texto-boton">Ver</span>
+      <p class="texto-click">Dar click</p>
+    </div>
+  </section>
+
+  <!-- MODAL LLUVIA DE SOBRES -->
+  <div id="modal-sobres" class="modal">
+    <div class="modal-contenido fondo-sobres">
+      <span class="cerrar" onclick="cerrarSobres()">✕</span>
+
+      <h3 class="titulo-dorado">Lluvia de sobres</h3>
+
+      <img src="img/sobres.png" class="imagen-central" alt="Lluvia de sobres">
+
+      <p class="texto-negro">
+        Gracias por formar parte de este<br> día tan especial
+      </p>
+    </div>
+  </div>
+  <!-- GALERIA -->
+  <section class="section galeria">
+    <h2 class="titulo-dorado">GALERÍA</h2>
+    <p class="galeria-sub">¡Mi sesión de fotos!</p>
+
+    <div class="galeria-contenedor">
+      <button class="galeria-btn izquierda" onclick="prevFoto()">‹</button>
+
+      <div class="galeria-slider">
+        <img src="img/galeria1.jpg" class="galeria-img active">
+        <img src="img/galeria2.jpg" class="galeria-img">
+        <img src="img/galeria3.jpg" class="galeria-img">
+        <img src="img/galeria4.jpg" class="galeria-img">
+        <img src="img/galeria5.jpg" class="galeria-img">
+      </div>
+
+      <button class="galeria-btn derecha" onclick="nextFoto()">›</button>
+    </div>
+
+    <p class="galeria-footer">
+      Los mejores momentos merecen ser compartidos
+    </p>
+  </section>
+<!-- CONFIRMAR ASISTENCIA -->
+<section class="section confirmar">
+  <h2 class="titulo-dorado">Confirma tu asistencia</h2>
+
+  <p class="texto-info">
+    Quiero compartir este día tan esperado<br> contigo,
+    por favor ayúdanos confirmando<br> tu asistencia
+  </p>
+
+  <img src="img/icono-whatsapp.png" class="icono-wsp" alt="WhatsApp">
+
+  <div class="botones-confirmar">
+    <a
+      href="https://wa.me/573017719151?text=Hola%20Samantha,%20confirmo%20mi%20asistencia%20a%20tus%20XV%20años"
+      target="_blank"
+      class="btn-confirmar"
+    >
+      Confirmar a Samantha
+    </a>
+
+    <a
+      href="https://wa.me/573138388801?text=Hola,%20confirmo%20mi%20asistencia%20a%20los%20XV%20años%20de%20Samantha"
+      target="_blank"
+      class="btn-confirmar"
+    >
+      Confirmar a Mamá
+    </a>
+  </div>
+
+  <p class="click-texto">Da click aquí para confirmar tu asistencia</p>
+
+  <p class="texto-final">
+    Gracias por hacer parte de este momento tan especial
+  </p>
+</section>
+<div class="bloque-final">
+  <img src="img/imagen-final.jpg" class="imagen-final" alt="Decoración final">
+
+  <p class="mensaje-final">
+    Gracias por hacer parte de este momento tan especial
+  </p>
+</div>
+
+
+  <script src="script.js"></script>
+  </body>
+  </html>

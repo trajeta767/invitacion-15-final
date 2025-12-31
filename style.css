@@ -1,0 +1,812 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: #fafafa;
+  color: #444;
+}
+
+body.lock {
+  overflow: hidden;
+}
+
+/* ===== SOBRE OVERLAY ===== */
+#overlay-sobre {
+  position: fixed;
+  inset: 0;
+  background-image: url("img/fondo-sobre.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1s ease, visibility 1s ease;
+  animation: zoomFondo 6s ease-in-out infinite alternate;
+}
+
+#overlay-sobre::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+#overlay-sobre.ocultar {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.contenido-sobre {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  animation: fadeIn 1.2s ease;
+}
+
+.contenido-sobre img {
+  width: 680px;
+  max-width: 105%;
+  margin: 20px 0;
+}
+
+.intro {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.nombre {
+  font-size: 28px;
+  color: #8AB364;
+}
+
+.click {
+  display: block;
+  margin-top: 10px;
+  color: #fff;
+}
+
+/* ===== SECCIONES ===== */
+.section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* ===== PORTADA ===== */
+.portada {
+  position: relative;
+  overflow: hidden;
+}
+
+.portada::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.25)
+  );
+  z-index: 2;
+}
+
+.portada img {
+  width: 100%;
+  max-width: 420px;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.texto-portada {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  text-align: center;
+  pointer-events: none;
+  transform: translateY(-90px);
+}
+
+.nombre-portada {
+  font-size: 36px;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.8);
+}
+
+.linea-xv {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.linea-xv span {
+  width: 40px;
+  height: 1px;
+  background: white;
+}
+
+.linea-xv p {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.8);
+}
+
+.fecha-portada {
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.8);
+}
+
+/* lluvia sobres */
+.sobres-fondo {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sobres-fondo span {
+  position: absolute;
+  top: -40px;
+  font-size: 24px;
+  opacity: 0.7;
+  animation: caerSobres linear infinite;
+}
+
+/* ===== MUSICA (AJUSTADA SOLO TEXTO) ===== */
+.musica {
+  background: url("img/flores.jpg") center/cover no-repeat;
+  color: #8AB364;
+  padding: 50px 20px;   /* menos altura */
+  min-height: 100vh;
+}
+
+.play-text {
+  margin-bottom: 50px;
+  font-size: 14px;       /* MÁS PEQUEÑO */
+}
+
+.music-box {
+  position: relative;
+  width: 120px;
+  margin: 0 auto 40px;   /* menos espacio */
+}
+
+.music-box button {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: none;
+  background: #8AB364;
+  color: white;
+  font-size: 22px;
+}
+
+.corona {
+  width: 80px;
+  position: absolute;
+  top: -55px;
+  left: 20px;
+}
+
+.mensaje {
+  max-width: 360px;
+  margin: 40px auto 0;   /* MÁS JUNTO */
+  line-height: 1.35;     /* 🔥 MENOS INTERLINEADO */
+  font-size: 14px;       /* 🔥 MÁS CHIQUITO */
+}
+
+/* ===== RESTO ===== */
+.nombre-corona img {
+  width: 60px;
+}
+
+.contador {
+  background: #8AB364;
+  color: white;
+}
+
+#countdown {
+  font-size: 22px;
+  margin: 15px 0;
+}
+
+.cierre {
+  background: #8AB364;
+  color: white;
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomFondo {
+  from {
+    background-size: 100%;
+  }
+  to {
+    background-size: 110%;
+  }
+}
+
+@keyframes caerSobres {
+  from {
+    transform: translateY(-60px);
+  }
+  to {
+    transform: translateY(110vh);
+  }
+}
+/* ===== CORONA DENTRO DEL TEXTO (AISLADA) ===== */
+.corona-texto {
+  width: 55px;
+  display: block;
+  margin: 10px auto 6px;
+  position: static;
+}
+
+.nombre-texto {
+  display: block;
+  font-size: 45px;
+  letter-spacing: 2px;
+  color: #8AB364;
+  margin-top: -40px;   /* 👈 súbelo poquito */
+  margin-bottom: 10px;
+}
+.texto-cafe {
+  color: #7a5a3a; /* cafecito elegante */
+}
+
+/* ===== MEJORA CUENTA REGRESIVA ===== */
+.contador-titulo {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.contador-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.contador-numeros {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.contador-textos {
+  display: flex;
+  gap: 10px;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+/* SOLO NÚMEROS */
+.contador-numeros span {
+  width: 55px;          /* 👈 AJUSTA SOLO AQUÍ */
+  text-align: center;
+}
+
+/* SOLO TEXTOS */
+.contador-textos span {
+  width: 40px;          /* 👈 ESTOS NO SE MUEVEN */
+  text-align: center;
+}
+
+.dos-puntos {
+  width: 10px !important;
+  opacity: 0.8;
+}
+
+.contador-final {
+  margin-top: 18px;
+  font-size: 14px;
+}
+.cuando-donde {
+  background: url("img/fondo-cuando-donde.jpg") center/cover no-repeat;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.titulo-dorado,
+.subtitulo-dorado {
+  color: #c9a24d;
+  font-weight: bold;
+}
+
+.titulo-dorado {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.texto-info {
+  color: #000;
+  font-size: 14px;
+  max-width: 600px;
+  margin: 0 auto 25px;
+}
+
+.subtitulo-dorado {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* FECHA */
+.mes {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+}
+
+.fecha-lineas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 6px 0;
+}
+
+.fecha-lineas .linea {
+  width: 40px;
+  height: 1px;
+  background: #000;
+}
+
+.texto-fecha {
+  font-size: 14px;
+  color: #000;
+}
+
+.fecha-numeros {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 6px;
+}
+
+.fecha-numeros .num {
+  font-size: 22px;
+  color: #000;
+}
+
+/* HORA Y LUGAR */
+.icono {
+  font-size: 22px;
+  color: #c9a24d;
+  display: block;
+  margin: 15px 0 5px;
+}
+
+.hora p,
+.nombre-lugar,
+.direccion {
+  color: #000;
+  font-size: 14px;
+}
+
+.nombre-lugar {
+  font-weight: bold;
+}
+
+/* BOTON */
+.btn-mapa {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 10px 25px;
+  border: 2px solid #c9a24d;
+  color: #c9a24d;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+/* ===== FECHA RECEPCIÓN (SÁBADO 24 2026) ===== */
+
+.fecha-linea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 10px 0;
+  color: #000;
+}
+
+/* SÁBADO y 2026 */
+.con-rayas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+/* RAYA ARRIBA */
+.con-rayas::before {
+  content: "";
+  width: 60px;
+  height: 1px;
+  background: #000;
+  margin-bottom: 3px;
+}
+
+/* RAYA ABAJO */
+.con-rayas::after {
+  content: "";
+  width: 60px;
+  height: 1px;
+  background: #000;
+  margin-top: 3px;
+}
+
+/* EL 24 (SIN RAYAS) */
+.dia-numero {
+  font-size: 52px;
+  font-weight: bold;
+}
+.mes-img {
+  width: 140px;     /* controla el tamaño */
+  margin: 0 auto 6px;
+  display: block;
+}
+.icono-img {
+  width: 48px;          /* tamaño del icono */
+  margin: 15px auto 6px;
+  display: block;
+}
+/* ===== CODIGO DE VESTIMENTA ===== */
+.vestimenta {
+  background: url("img/fondo-vestimenta.jpg") center/contain no-repeat;      /* relleno si sobra espacio */
+  text-align: center;
+  padding: 70px 20px;
+  min-height: 110vh;           /* ocupa toda la pantalla */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.boton-vestimenta {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.boton-vestimenta img {
+  width: 160px;
+}
+
+.texto-ver {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.click-texto {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #000;
+}
+
+/* ===== MODAL ===== */
+.modal-vestimenta {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.modal-vestimenta.activo {
+  display: flex;
+}
+
+.contenido-vestimenta {
+  position: relative;
+  background: url("img/fondo-rectangulo.jpg") center/cover no-repeat;
+  padding: 40px 25px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.cerrar-vestimenta {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.texto-modal {
+  font-size: 15px;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.img-vestimenta {
+  width: 80%;
+  max-width: 260px;
+  margin-bottom: 15px;
+}
+
+.nota-color {
+  font-size: 14px;
+  color: #000;
+}
+/* SECCION REGALOS */
+.regalos {
+  background: url("img/fondo-sobres.jpg") center/cover no-repeat;
+  text-align: center;
+  padding: 80px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* BOTON */
+.boton-abrir {
+  margin: 40px auto 0;        /* 👈 lo centra */
+  cursor: pointer;
+  position: relative;
+  display: flex;              /* 👇 centra contenido */
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.boton-abrir img {
+  width: 280px;        /* 👈 más grande */
+  max-width: 80%;
+  display: block;
+}
+
+/* TEXTO "VER" DENTRO DEL BOTÓN */
+.texto-boton {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;     /* 👈 un poco más grande */
+  font-weight: bold;
+  pointer-events: none;
+}
+
+
+/* TEXTO "DAR CLICK" AFUERA Y ABAJO */
+.texto-click {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contenido {
+  position: relative;
+  padding: 40px 20px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* FONDO RECTANGULO */
+.fondo-sobres {
+  background: url("img/fondo-rectangulo.jpg") center/cover no-repeat;
+  border-radius: 20px;
+}
+
+/* CERRAR */
+.cerrar {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* IMAGEN CENTRAL */
+.imagen-central {
+  width: 200px;
+  margin: 20px 0;
+}
+
+/* TEXTO DORADO */
+.texto-dorado {
+  color: #000000;
+  font-size: 14px;
+}
+/* ===== GALERIA ===== */
+/* ===== GALERIA ===== */
+.galeria {
+  background-image: url("img/fondo-galeria.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  min-height: 100vh;
+
+  text-align: center;
+  padding: 80px 20px;
+  position: relative;   /* 👈 CLAVE */
+}
+
+
+.galeria-sub {
+  color: #000;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+.galeria-contenedor {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto 25px;
+}
+
+.galeria-slider {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.galeria-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.galeria-img.active {
+  opacity: 1;
+}
+
+/* BOTONES */
+.galeria-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(201, 162, 77, 0.9);
+  border: none;
+  color: white;
+  font-size: 26px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.galeria-btn.izquierda {
+  left: -18px;
+}
+
+.galeria-btn.derecha {
+  right: -18px;
+}
+
+.galeria-footer {
+  color: #000;
+  font-size: 14px;
+  margin-top: 15px;
+}
+/* ===== CONFIRMAR ASISTENCIA ===== */
+.confirmar {
+  background: url("img/fondo-confirmar.jpg") center / cover no-repeat;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.confirmar .texto-info {
+  color: #000;
+  font-size: 14px;
+  margin: 15px 0 25px;
+}
+
+.icono-wsp {
+  width: 85px;
+  margin-bottom: 25px;
+}
+
+.botones-confirmar {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 260px;
+}
+
+.btn-confirmar {
+  background: #c9a24d;
+  color: white;
+  text-decoration: none;
+  padding: 12px 15px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.btn-confirmar:hover {
+  transform: scale(1.05);
+}
+
+.click-texto {
+  margin-top: 15px;
+  font-size: 13px;
+  color: #000;
+}
+
+.texto-final {
+  margin-top: 30px;
+  font-size: 13px;
+  color: #000;
+}
+.imagen-final {
+  width: 190px;       /* ajusta si la quieres más grande o pequeña */
+  margin: 20px auto;
+  display: block;
+}
+.bloque-final {
+  background: #72A63D;   /* tu verde */
+  padding: 25px 15px;
+  text-align: center;
+}
