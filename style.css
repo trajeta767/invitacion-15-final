@@ -810,3 +810,9 @@ body.lock {
   padding: 25px 15px;
   text-align: center;
 }
+.section + .section {
+  margin-top: -23px;
+}
+.vestimenta {
+  overflow: hidden;
+}
