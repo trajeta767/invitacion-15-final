@@ -488,7 +488,6 @@ body.lock {
   justify-content: center;
 }
 
-
 .boton-vestimenta {
   position: relative;
   display: inline-block;
@@ -578,7 +577,6 @@ body.lock {
   justify-content: center;
 }
 
-
 /* BOTON */
 .boton-abrir {
   margin: 40px auto 0;        /* 👈 lo centra */
@@ -588,7 +586,6 @@ body.lock {
   flex-direction: column;
   align-items: center;
 }
-
 
 
 .boton-abrir img {
@@ -609,13 +606,11 @@ body.lock {
   pointer-events: none;
 }
 
-
 /* TEXTO "DAR CLICK" AFUERA Y ABAJO */
 .texto-click {
   margin-top: 8px;
   font-size: 14px;
 }
-
 
 /* MODAL */
 .modal {
@@ -677,7 +672,6 @@ body.lock {
   padding: 80px 20px;
   position: relative;   /* 👈 CLAVE */
 }
-
 
 .galeria-sub {
   color: #000;
@@ -810,9 +804,4 @@ body.lock {
   padding: 25px 15px;
   text-align: center;
 }
-.section + .section {
-  margin-top: -23px;
-}
-.vestimenta {
-  overflow: hidden;
-}
+
